@@ -1,4 +1,5 @@
 import nextMDX from '@next/mdx'
+import rehypeHighlight from 'rehype-highlight'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
@@ -9,21 +10,22 @@ const nextConfig = {
   swcMinify: true,
   output: 'standalone',
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-};
+}
 
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
     rehypePlugins: [
-      [rehypeKatex, {macros: {"\\f": "#1f(#2)"}}]
+      [rehypeKatex, { /*macros: {"\\f": "#1f(#2)"}*/ }],
+      [rehypeHighlight, { }]
     ],
     remarkPlugins: [
       remarkMath
     ],
     providerImportSource: "@mdx-js/react",
   },
-});
+})
 
 
-export default withMDX(nextConfig);
+export default withMDX(nextConfig)
