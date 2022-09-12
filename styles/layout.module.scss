@@ -1,0 +1,35 @@
+.article :global {
+  margin: auto;
+  max-width: 50rem;
+
+  pre code.hljs {
+    margin: auto -2rem;
+    padding: 1rem 2rem;
+  }
+
+  .icon-link {
+    visibility: hidden;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: -1.5rem;
+    background-size: contain;
+    background-image: url(../public/link-light.svg);
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url(../public/link-dark.svg);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-left: -1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  h1:hover .icon-link, h2:hover .icon-link, h3:hover .icon-link,
+  h4:hover .icon-link, h5:hover .icon-link, h6:hover .icon-link,
+  h1:target .icon-link, h2:target .icon-link, h3:target .icon-link,
+  h4:target .icon-link, h5:target .icon-link, h6:target .icon-link {
+    visibility: visible;
+  }
+}

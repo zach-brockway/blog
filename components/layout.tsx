@@ -1,10 +1,22 @@
 import type { ReactElement } from 'react'
+import styles from '../styles/layout.module.scss'
 
-export default function Layout({ children }: { children: ReactElement }) {
+export default function Layout(
+	{ children, meta }:
+	{
+		children: ReactElement;
+		meta: {
+			title: string;
+			date: string;
+			excerpt: string;
+		}
+	}) {
 	return (
-		<>
-			<h1>layout</h1>
+		<article className={styles.article}>
+			<h1>{meta.title}</h1>
+			<em>{meta.excerpt}</em> &mdash; <time>{meta.date}</time>
+			<hr/>
 			<main>{children}</main>
-		</>
+		</article>
 	)
 }
